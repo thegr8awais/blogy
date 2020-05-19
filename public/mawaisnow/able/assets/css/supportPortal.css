@@ -1,0 +1,343 @@
+:root{
+  --c1: #5ABAA5;
+}
+.bg1 {
+    background: #5ABAA5 !important;
+}
+.hand{
+  cursor: pointer;
+}
+.table-responsive {
+    overflow-x: scroll !important;
+}
+.form-control{
+  border: 1px solid #dee2e6!important;
+}
+.txt1 {
+    color: #5ABAA5;
+}
+.minHeightForNoTasks{
+  min-height: 244px;
+}
+.questionsAccordion{
+  display: none;
+}
+.questionsAccordion.active{
+  display: block;
+}
+.borderTopRound{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.headingWhite{
+  font-size: 22px;
+  color: white;
+}
+.projectTaskIcon{
+  font-size: 15px;
+}
+
+
+
+
+
+
+.taskProjectIcon{
+  width: 70px;
+  color: white;
+  font-size: 28px;
+  background: #63C6B4;
+  border-radius: 10px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+}
+.borderRadius{
+  border-radius: 10px;
+
+}
+.inActiveProject{
+  background: #808080;
+}
+.projectActiveDashboarddown{
+  width: 109px;
+  color: white;
+  font-size: 42px;
+  background: #63C6B4;
+  border-radius: 10px;
+  height: 109px;
+  display: flex;
+  justify-content: center;
+}
+.positionReltive{
+  position: relative;
+  margin-top: 50px;
+}
+.activeProjecttitle{
+  font-size: 18px;
+  font-weight: bold;
+  align-self: center;
+  display: flex;
+}
+.nleftrightm{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.taskprojectTitle{
+  display: flex;
+  width: 160px;
+  height: 70px;
+  justify-content: center;
+}
+.headingBlack{
+  font-size: 22px;
+  color: black;
+}
+.cardHeader {
+    font-size: 23px;
+    background-color: #5ABAA5 !important;
+    color: white;
+}
+
+a {
+    color: #5ABAA5;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.roundForIcon {
+    width: 38px;
+    padding: 7px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 22px;
+    background: #23ab8d;
+    color: white;
+}
+
+.modelcloseAccount {}
+
+.profileSPBusinessName {
+    background: #d9d9d9;
+    border-radius: 10px;
+    color: #000;
+    font-weight: bold;
+    /* padding-top: 0.7rem;
+  padding-bottom: 0.7rem; */
+    padding: 0.3rem 0px;
+}
+
+.headingOrder {
+    font-size: 18px;
+}
+
+.imgContainerOrder {
+    min-height: 131px;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #5abaa500;
+    outline: 0;
+    box-shadow: 0 0 0 0.08rem rgb(206, 212, 218);
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #3f9e8a;
+    border-color: #4aab95;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #1c8c73;
+    border-color: #23ab8d;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(90, 186, 165, 0);
+}
+
+.pcoded-navbar a {
+    color: #fff;
+}
+
+.select2-container .select2-selection--single {
+    height: 43px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 43px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 41px !important;
+}
+
+.noselect {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.headingColor {
+    color: #5f5f5f;
+}
+
+.minHeight1 {
+    min-height: 200px;
+}
+
+.socialIconForReferral {
+    width: 65px;
+    padding: 13px;
+    font-size: 22px;
+}
+
+.orderBoxes {
+    border-radius: 8px;
+    background: white;
+    margin-bottom: 14px;
+}
+.statusInitlizing,.statusInProgress,.statusCancelled,.statusInReview,.statusCompleted{
+  background: #FC7C0B;
+  color: white;
+  display: inline;
+  padding: 10px;
+  border-radius: 20px;
+}
+.statusInProgress{
+  background: #18369A;
+}
+.statusCancelled{
+  background: #FF0000;
+}
+.statusInReview{
+  background: #63C6B4;
+}
+.statusCompleted{
+  background: #199F00;
+}
+.fontSize14px {
+    font-size: 14px;
+}
+.pcoded-navbar.navbar-image-1{
+  height: 100%;
+  position: fixed;
+}
+.linkspCPassword {
+    color: #323437;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #63c5b4;
+}
+
+.blackColorOrderForm {
+    color: #514F4F;
+}
+.clientTaskDue{
+  font-size: 12px;
+  margin-top: 10px;
+  color: #a6a6a6cf;
+}
+.supportTabs{
+  width: 70px;
+    display: inline-block;
+    color: #000;
+    font-weight: bold;
+    margin-right: 43px;
+}
+.fontSizeGeneralControl{
+  font-size: 12px;
+}
+.supportTabs.active{
+border-bottom: 2px solid var(--c1);
+}
+@media (max-width: 1415px) {
+    .taskProjectIcon{
+      width: 60px;
+      height: 60px;
+    }
+    .taskprojectTitle{
+      width: 133px;
+      height: 60px;
+    }
+}
+
+@media (min-width: 1200px) {
+  .minHeightOfTasks{
+    min-height: 224px;
+  }
+}
+@media (max-width: 1315px) and (min-width:  1100px) {
+  .taskProjectIcon {
+      width: 50px;
+      height: 50px;
+  }
+  .btn{
+    padding: 6px 7px;
+  }
+}
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 992px) {
+    .minHeight1 {
+        min-height: 342px;
+    }
+    .supportTabs {
+      width: 53px;
+      display: inline-block;
+      margin-right: 8px;
+    }
+}
+@media (max-width: 440px) {
+    .supportTabs {
+      width: 100%;
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 11px;
+      text-align: center;
+      background: #5abaa5;
+      color: white;
+      padding: 8px;
+    }
+    .supportTabs.active{
+      background: white;
+      color: #5abaa5;
+      border: 1px solid #5ABAA5;
+    }
+}
+@media only screen and (max-width: 991px){
+  .pcoded-header {
+      background: black;
+      color: #fff;
+  }
+}
+@media (max-width: 576px) {
+    .cardHeader {
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 575px){
+  .pcoded-header .dropdown .dropdown-menu {
+      width: 91%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+  }
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 715px;
+        margin: 1.75rem auto;
+    }
+}
