@@ -18,7 +18,8 @@ class CreatePostTagsTable extends Migration
 
             $table->string('title')->nullable();
             $table->integer('postId')->nullable();
-            
+            $table->integer('userId')->nullable();
+
 
             $table->timestamps();
         });

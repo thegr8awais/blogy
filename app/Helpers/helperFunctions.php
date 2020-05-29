@@ -7,27 +7,32 @@ function getFunInfo($fun)
     );
     print $reflFunc->getFileName() . ':' . $reflFunc->getStartLine();
 }
-function getOnBoardingSessionId() {
-  $supportChatSession = \App\SupportChatSession::where('createdBy', \Auth::id())->first();
+function getOnBoardingSessionId()
+{
+    $supportChatSession = \App\SupportChatSession::where('createdBy', \Auth::id())->first();
 
-  if ($supportChatSession == null) {
-
-    $supportChatSession = new \App\SupportChatSession([
+    if ($supportChatSession == null) {
+        $supportChatSession = new \App\SupportChatSession([
       'status'=> 1,
       'createdBy'=> \Auth::id()
     ]);
-    $supportChatSession->save();
-    newNoti(1, "New onboarding Chat", "New OnBoarding Chat Request",
-    route('supportChat',['id'=> $supportChatSession->id]), 0);
+        $supportChatSession->save();
+        newNoti(
+            1,
+            "New onboarding Chat",
+            "New OnBoarding Chat Request",
+            route('supportChat', ['id'=> $supportChatSession->id]),
+            0
+        );
+    }
 
-  }
 
 
-
-  return $supportChatSession->id;
+    return $supportChatSession->id;
 }
-function supportFaqCategories() {
-  return [
+function supportFaqCategories()
+{
+    return [
     'General', 'Project', 'Plans', 'Billing', 'Tasks'
   ];
 }
@@ -54,9 +59,9 @@ function getNotifcations($limit = 10, $isAdmin = false)
 {
     $obj = new \stdClass;
     if ($isAdmin) {
-      $obj->notification = App\Notification::where('forUser',0)->limit($limit)->orderBy('id','desc')->get();
-    }else {
-      $obj->notification = App\Notification::where('forUser',\Auth::id())->limit($limit)->orderBy('id','desc')->get();
+        $obj->notification = App\Notification::where('forUser', 0)->limit($limit)->orderBy('id', 'desc')->get();
+    } else {
+        $obj->notification = App\Notification::where('forUser', \Auth::id())->limit($limit)->orderBy('id', 'desc')->get();
     }
     $obj->hasNew = $obj->notification->where('status', 0)->count();
     $obj->new = $obj->notification->where('status', 0);
@@ -66,15 +71,16 @@ function getNotifcations($limit = 10, $isAdmin = false)
     $obj->hasNotification = $obj->notification->count();
     return $obj;
 }
-function deleteAllUserData($userId) {
-  \App\BusinessAttachment::where('createdBy',$userId)->delete();
-  \App\ClientTask::where('userId', $userId)->delete();
-  \App\MarketingService::where('createdBy', $userId)->delete();
-  \App\SupportChat::where('createdBy', $userId)->delete();
-  \App\Order::where('createdBy',$userId)->delete();
-  \App\SupportChatSession::where('createdBy',$userId)->delete();
-  \App\Project::where('createdBy', $userId)->delete();
-  \App\Ticket::where('createdBy', $userId)->delete();
+function deleteAllUserData($userId)
+{
+    \App\BusinessAttachment::where('createdBy', $userId)->delete();
+    \App\ClientTask::where('userId', $userId)->delete();
+    \App\MarketingService::where('createdBy', $userId)->delete();
+    \App\SupportChat::where('createdBy', $userId)->delete();
+    \App\Order::where('createdBy', $userId)->delete();
+    \App\SupportChatSession::where('createdBy', $userId)->delete();
+    \App\Project::where('createdBy', $userId)->delete();
+    \App\Ticket::where('createdBy', $userId)->delete();
 }
 function fileInfo($file)
 {
@@ -165,7 +171,6 @@ function sendSignUpEmail(array $data)
 }
 function sendUserReportEmail(array $data)
 {
-
     $email = $data['email'];
     \Mail::to($email)->send(new App\Mail\UserReportEmail($data));
 }
@@ -704,19 +709,19 @@ function flexsitedPlans()
 }
 function getPlanByStripePlanId($planId)
 {
-  $obj = new \stdClass;
-  $obj->title = "-";
-  $plan1 = \App\Plan::where('stripePlanMonthId',$planId)->first();
-  $plan2 = \App\Plan::Where('stripePlanYearId',$planId)->first();
-  if ($plan1 != null) {
-    $obj->plan = $plan1;
-    $obj->title = ucwords($plan1->name) . " Monthly " . " Subscription";
-  }
-  if ($plan2 != null) {
-    $obj->plan = $plan2;
-    $obj->title = ucwords($plan2->name) . " Yearly " . " Subscription";
-  }
-  return $obj;
+    $obj = new \stdClass;
+    $obj->title = "-";
+    $plan1 = \App\Plan::where('stripePlanMonthId', $planId)->first();
+    $plan2 = \App\Plan::Where('stripePlanYearId', $planId)->first();
+    if ($plan1 != null) {
+        $obj->plan = $plan1;
+        $obj->title = ucwords($plan1->name) . " Monthly " . " Subscription";
+    }
+    if ($plan2 != null) {
+        $obj->plan = $plan2;
+        $obj->title = ucwords($plan2->name) . " Yearly " . " Subscription";
+    }
+    return $obj;
 }
 function getSupportOrders($orderType = null)
 {
@@ -729,4 +734,19 @@ function getSupportOrders($orderType = null)
         return $orders[$orderType];
     }
     return null;
+}
+
+function urlSlug($string, $space="-")
+{
+    $string = utf8_encode($string);
+    if (function_exists('iconv')) {
+        $string = iconv('UTF-8', 'ASCII//TRANSLIT', $string);
+    }
+
+    $string = preg_replace("/[^a-zA-Z0-9 \-]/", "", $string);
+    $string = trim(preg_replace("/\\s+/", " ", $string));
+    $string = strtolower($string);
+    $string = str_replace(" ", $space, $string);
+
+    return $string;
 }

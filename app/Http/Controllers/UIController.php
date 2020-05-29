@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Post;
 
 
 class UIController extends Controller
@@ -13,7 +14,14 @@ class UIController extends Controller
       if (Auth::check() && superAdmin()) {
         return redirect()->route('adminHome');
       }
-      return view('welcome');
+      $posts = Post::orderBy('id','desc')->paginate(20);
+      $arr['posts'] = $posts;
+
+      return view('welcome',$arr);
+    }
+    public function post(Request $request, Post $post)
+    {
+      return view('post',compact('post'));
     }
 
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\PostTag;
 use Illuminate\Http\Request;
+use Auth;
 
 class PostController extends Controller
 {
@@ -14,7 +16,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+
+        $arr['posts'] = Post::paginate(20);
+
+        return view('admin.posts.index', $arr);
+
     }
 
     /**
@@ -24,7 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        // return view('admin.');
+        return view('admin.posts.addEdit');
     }
 
     /**
@@ -35,7 +41,33 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          'title'=> 'required|max:255',
+          'description'=> 'required|max:64000',
+          'image'=> 'required'
+        ]);
+
+        $post = new Post;
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->descriptionText = $request->descriptionText;
+        $post->image = $request->image->store('images');
+        $post->userId = Auth::id();
+
+        $post->save();
+
+        if ($request->tags != null) {
+          foreach ($request->tags as $tag) {
+            $postTag = new PostTag;
+            $postTag->title = $tag;
+            $postTag->postId = $post->id;
+            $postTag->userId = Auth::id();
+            $postTag->save();
+          }
+        }
+
+        return statusTo('post published....' , route('posts.index'));
+
     }
 
     /**
@@ -80,6 +112,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+
+        $post->delete();
+        return status('post deleted');
+
     }
 }

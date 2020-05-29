@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','UIController@index')->name('root');
 Route::get('/home','UIController@index')->name('home');
-Route::get('p/{id}/{title?}','UIController@post')->name('post');
+Route::get('p/{post}/{title?}','UIController@post')->name('post');
 
 
 Auth::routes();

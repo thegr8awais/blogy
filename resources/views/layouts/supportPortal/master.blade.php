@@ -67,7 +67,7 @@
                       <i class="feather icon-trending-up"></i>
                   </div>
                   <span class="b-title">{{ myconf('logoText') }}</span> --}}
-                  <span class="b-title">{{ myconf('logoText') }}</span> 
+                  <span class="b-title">{{ myconf('logoText') }}</span>
 
               </a>
                 {{-- <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a> --}}
@@ -78,7 +78,7 @@
 
 
                       <li class="nav-item {{ requestIsFromArray(['posts.index']) }}">
-                        <a href="{{ route('posts.index') }}" class="nav-link "><span class="pcoded-micon"><i class="fa fa-question-circle"></i></span><span class="pcoded-mtext">Posts</span></a>
+                        <a href="{{ route('posts.index') }}" class="nav-link "><span class="pcoded-micon"><i class="fa  fa-sticky-note"></i></span><span class="pcoded-mtext">Posts</span></a>
                       </li>
 
                 </ul>
